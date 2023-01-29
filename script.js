@@ -1,12 +1,23 @@
-const axios = require("axios");
-
-const ip = "192.168.0.1";
-const ports = [25565, 25566, 25567, 25568, 25569];
+const servers = [
+  { id: "server1", name: "Server 1", ip: "192.168.0.1:25565" },
+  { id: "server2", name: "Server 2", ip: "192.168.0.1:25566" },
+  { id: "server3", name: "Server 3", ip: "192.168.0.1:25567" },
+  { id: "server4", name: "Server 4", ip: "192.168.0.1:25568" },
+  { id: "server5", name: "Server 5", ip: "192.168.0.1:25569" }
+];
 
 async function updateStatus() {
-  for (const port of ports) {
-    const response = await axios.get(`http://${ip}:${port}`);
-    console.log(`Server${port - 25564}: ${response.status === 200 ? "Online" : "Offline"}`);
+  for (const server of servers) {
+    const response = await fetch(
+      `https://api.mcsrvstat.us/2/${server.ip}`
+    );
+    const data = await response.json();
+    document.getElementById(server.id).innerHTML = data.online
+      ? "Online"
+      : "Offline";
+    document.getElementById(server.id).className = data.online
+      ? "online"
+      : "offline";
   }
 }
 
