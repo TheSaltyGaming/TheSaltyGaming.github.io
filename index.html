@@ -1699,7 +1699,7 @@ Object.defineProperty(window, 'source', {
                 padding-right: 14px;
               
             ">
-            Create: Astral
+            Create: Astral : <span id="server1"></span>
           </span>
           <div class="accordion-icon-container" data-is-open="false" aria-hidden="true" style="
               height: 14px;
@@ -1740,7 +1740,7 @@ Object.defineProperty(window, 'source', {
             }
           ">
             <p class="preFade" style="white-space: pre-wrap; transition-timing-function: ease; transition-duration: 1.5s; transition-delay: 0.355556s;">
-    The server is currently <span id="server1"></span>, and is assigned the ip saltygaming.no
+    The IP for this server isn't public, but you can DM me on discord to request access
           </p>
           <script>
             async function updateStatus() {
@@ -1823,7 +1823,7 @@ Object.defineProperty(window, 'source', {
             min-width: 90%;
             max-width: 300px;
           ">
-          <p class="preFade" style="white-space: pre-wrap; transition-timing-function: ease; transition-duration: 1.5s; transition-delay: 0.4s;">The server is currently <span id="server1"></span>, and is assigned the ip saltygaming.no:25567
+          <p class="preFade" style="white-space: pre-wrap; transition-timing-function: ease; transition-duration: 1.5s; transition-delay: 0.4s;">The server is currently <span id="server2"></span>, and is assigned the ip saltygaming.no:25567
           </p>
           <script>
             async function updateStatus() {
@@ -1831,10 +1831,10 @@ Object.defineProperty(window, 'source', {
                 "https://api.mcsrvstat.us/2/saltygaming.no:25567"
               );
               const data = await response.json();
-              document.getElementById("server1").innerHTML = data.online
+              document.getElementById("server2").innerHTML = data.online
                 ? "Online"
                 : "Offline";
-              document.getElementById("server1").className = data.online
+              document.getElementById("server2").className = data.online
                 ? "online"
                 : "offline";
             }
